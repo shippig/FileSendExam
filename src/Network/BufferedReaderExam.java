@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileReaderExam
+public class BufferedReaderExam
 {
 
 	public static void main(String[] args)
@@ -19,15 +19,20 @@ public class FileReaderExam
 		FileReader fr = null;
 		FileWriter fw = null;
 		
+		BufferedReader br = null;
 		try
 		{
 			fr = new FileReader(filePath);
 			fw = new FileWriter(copyPath);
 			
-			int str = -1;
-			while((str = fr.read()) != -1)
+			br = new BufferedReader(fr);
+		
+			String str = "";
+			while((str = br.readLine()) != null)
 			{
+				System.out.println(str);
 				fw.write(str);
+				fw.flush();
 			}
 		} 
 		catch (FileNotFoundException e)

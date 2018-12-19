@@ -1,12 +1,12 @@
 package Network;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 
-public class FielCopyExam
+public class FileInputStreamExam
 {
 
 	public static void main(String[] args)
@@ -19,11 +19,12 @@ public class FielCopyExam
 		
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
-
+	
 		try
 		{
 			fis = new FileInputStream(filePath);
 			fos = new FileOutputStream(copyPath);
+			
 			byte[] buffer = new byte[512];
 			int readCount = -1;
 			
@@ -31,6 +32,7 @@ public class FielCopyExam
 			{
 				//버퍼, 0부터 읽어온 만큼(readCount) write하겠다. 
 				fos.write(buffer, 0, readCount);
+				fos.flush();
 			}
 		} 
 		catch (FileNotFoundException e)
