@@ -3,9 +3,10 @@ package Network;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 
-public class FielCopyExam1
+public class FielCopyExam
 {
 
 	public static void main(String[] args)
@@ -13,12 +14,12 @@ public class FielCopyExam1
 		//시작시간
 		long startTime = System.currentTimeMillis();
 		
-		String filePath = "/Users/insang-un/Desktop/eclipse/Network/src/img/유정.jpeg";
-		String copyPath = "/Users/insang-un/Desktop/eclipse/Network/src/img/copy.jpeg";
+		String filePath = "src/img/유정.jpeg";
+		String copyPath = "src/img/복사.jpeg";
 		
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
-		
+
 		try
 		{
 			fis = new FileInputStream(filePath);
